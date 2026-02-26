@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>De-Science Ledger – Immutable Science. Decentralized Truth.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="theme-dark">
+    <div id="particles-bg"></div>
+
+    <header class="ds-header">
+      <div class="ds-logo">De‑Science<span>Ledger</span></div>
+      <nav class="ds-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="upload.html">Upload</a>
+        <a href="verify.html">Verify</a>
+        <a href="login.html">Login</a>
+      </nav>
+      <div class="ds-header-actions">
+        <button id="presentationToggle" class="btn-ghost small">
+          Demo Mode
+        </button>
+        <button id="connectWalletBtn" class="btn-primary small">
+          Connect Wallet
+        </button>
+      </div>
+    </header>
+
+    <div id="walletDropdown" class="wallet-dropdown" hidden></div>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero fade-in-up">
+        <div class="hero-content">
+          <p class="eyebrow">Environmental & Space Data • On‑Chain</p>
+          <h1 class="hero-title">
+            <span class="gradient-text animate-gradient"
+              >Immutable Science.</span
+            >
+            <br />
+            <span class="outline-text">Decentralized Truth.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Anchor environmental DNA, orbital telemetry, and critical research
+            streams directly to Ethereum. Tamper‑evident, cryptographically
+            verifiable, and ready for DeSci.
+          </p>
+          <div class="hero-cta">
+            <button
+              class="btn-primary large"
+              onclick="window.location.href='dashboard.html'"
+            >
+              Enter Dashboard
+            </button>
+            <button
+              class="btn-secondary large"
+              onclick="window.location.href='upload.html'"
+            >
+              Anchor Data
+            </button>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <div class="metric-label">Verified Nodes</div>
+              <div id="metricNodes" class="metric-value counter">12</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Anchored Datasets</div>
+              <div id="metricDatasets" class="metric-value counter">384</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Chains Secured</div>
+              <div id="metricChains" class="metric-value counter">2</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-orbit fade-in-delay">
+          <div class="orbit-ring orbit-outer"></div>
+          <div class="orbit-ring orbit-middle"></div>
+          <div class="orbit-ring orbit-inner"></div>
+          <div class="orbit-core glow-pulse">
+            <span>On‑Chain</span>
+          </div>
+          <div class="orbit-label orbit-label-top">Edge Sensors</div>
+          <div class="orbit-label orbit-label-right">IPFS Anchors</div>
+          <div class="orbit-label orbit-label-bottom">Smart Contracts</div>
+          <div class="orbit-label orbit-label-left">DeSci Nodes</div>
+        </div>
+      </section>
+
+      <!-- Problem -->
+      <section class="section split-section">
+        <div class="section-header">
+          <h2>Why science data breaks in Web2.</h2>
+          <p>
+            Critical research insights live in fragile silos, centralized
+            servers, and unverifiable spreadsheets.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="glass-card hover-lift">
+            <h3>Data silos & lost provenance</h3>
+            <p>
+              Experiments move between labs, vendors, and satellites without a
+              verifiable chain‑of‑custody. PDFs and CSVs can be edited
+              silently.
+            </p>
+          </article>
+          <article class="glass-card hover-lift">
+            <h3>Centralized failure points</h3>
+            <p>
+              A single compromised server, forgotten backup, or revoked access
+              can erase years of environmental and orbital research.
+            </p>
+          </article>
+          <article class="glass-card hover-lift">
+            <h3>High‑value targets</h3>
+            <p>
+              eDNA baselines, space telemetry, and climate streams are
+              high‑impact datasets—yet often protected by weak audit trails.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Solution / Architecture -->
+      <section class="section section-architecture">
+        <div class="section-header">
+          <h2>Anchor every bit. Verify every claim.</h2>
+          <p>
+            De‑Science Ledger hashes, timestamps, and anchors your raw files
+            into an immutable verification fabric.
+          </p>
+        </div>
+        <div class="architecture-wrapper">
+          <div class="architecture-flow demo-highlight">
+            <div class="flow-item" data-flow="sensor">
+              <span>Sensor</span>
+              <p>eDNA rigs • Satellites • Ocean buoys</p>
+            </div>
+            <div class="flow-arrow"></div>
+            <div class="flow-item" data-flow="edge">
+              <span>Edge Device</span>
+              <p>Hash on ingest, sign with node key</p>
+            </div>
+            <div class="flow-arrow"></div>
+            <div class="flow-item" data-flow="ipfs">
+              <span>IPFS</span>
+              <p>Encrypted payload pinned to distributed storage</p>
+            </div>
+            <div class="flow-arrow"></div>
+            <div class="flow-item" data-flow="contract">
+              <span>Smart Contract</span>
+              <p>Hash, timestamp, node ID, and CID sealed on‑chain</p>
+            </div>
+            <div class="flow-arrow"></div>
+            <div class="flow-item" data-flow="dashboard">
+              <span>DeSci Dashboard</span>
+              <p>Verify, audit, and replay research history</p>
+            </div>
+          </div>
+
+          <div class="feature-grid">
+            <article class="glass-card small hover-lift">
+              <h3>Immutable timestamps</h3>
+              <p>Every dataset is sealed with block‑level time provenance.</p>
+            </article>
+            <article class="glass-card small hover-lift">
+              <h3>Wallet‑bound identity</h3>
+              <p>Researchers sign submissions with verifiable on‑chain keys.</p>
+            </article>
+            <article class="glass-card small hover-lift">
+              <h3>Decentralized storage</h3>
+              <p>
+                Raw files live on IPFS while Ethereum stores only minimal
+                hashes.
+              </p>
+            </article>
+            <article class="glass-card small hover-lift future">
+              <h3>Reputation vectors</h3>
+              <p>Future: on‑chain scoring for nodes and research collectives.</p>
+            </article>
+            <article class="glass-card small hover-lift future">
+              <h3>DAO governance</h3>
+              <p>Future: community‑curated standards for DeSci datasets.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live strip -->
+      <section class="section activity-strip">
+        <div class="strip-label">Live Anchors (demo)</div>
+        <div id="activityTicker" class="ticker">
+          <!-- Filled by JS -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="ds-footer">
+      <div class="footer-left">
+        <span>De‑Science Ledger</span>
+        <span class="footer-tagline">Built for DeSci hackathons.</span>
+      </div>
+      <div class="footer-links">
+        <a
+          href="#"
+          id="githubLink"
+          target="_blank"
+          rel="noreferrer noopener"
+          >GitHub</a
+        >
+        <a href="#" id="docsLink" target="_blank" rel="noreferrer noopener"
+          >Docs</a
+        >
+        <a href="mailto:contact@example.com">Contact</a>
+        <span class="contract-label">
+          Testnet Contract:
+          <span id="contractAddressDisplay">0x...demo</span>
+        </span>
+      </div>
+    </footer>
+
+    <!-- Libraries via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.2.0/crypto-js.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
+

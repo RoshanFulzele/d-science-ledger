@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>De-Science Ledger – Verify Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="theme-dark verify-page">
+    <div id="particles-bg"></div>
+
+    <header class="ds-header">
+      <div class="ds-logo">De‑Science<span>Ledger</span></div>
+      <nav class="ds-nav">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="upload.html">Upload</a>
+        <a href="verify.html" class="active">Verify</a>
+        <a href="login.html">Login</a>
+      </nav>
+      <div class="ds-header-actions">
+        <button id="presentationToggle" class="btn-ghost small">
+          Demo Mode
+        </button>
+        <button id="connectWalletBtn" class="btn-primary small">
+          Connect Wallet
+        </button>
+      </div>
+    </header>
+
+    <div id="walletDropdown" class="wallet-dropdown" hidden></div>
+
+    <main class="verify-main fade-in-up">
+      <section class="verify-layout glass-card">
+        <div class="verify-form-column">
+          <h1>Verify Dataset Integrity</h1>
+          <p class="verify-subtitle">
+            Generate a SHA‑256 hash locally and compare it with the on‑chain
+            record anchored by De‑Science Ledger.
+          </p>
+
+          <form id="verifyForm" class="upload-form">
+            <div class="field">
+              <label for="verifyFile">Upload File to Verify</label>
+              <div class="file-drop" id="verifyDrop">
+                <input
+                  type="file"
+                  id="verifyFile"
+                  accept=".csv,.json,.txt,.tsv,.log,.xml"
+                  required
+                />
+                <p>
+                  Drop the dataset or
+                  <span class="link-button">browse</span>
+                </p>
+                <small>File is hashed in your browser only.</small>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="verifyNodeId">Node ID (optional)</label>
+              <input
+                type="text"
+                id="verifyNodeId"
+                placeholder="If you know the original node ID"
+              />
+            </div>
+
+            <button type="submit" class="btn-primary full" id="verifySubmit">
+              Verify Against Chain
+            </button>
+          </form>
+        </div>
+
+        <div class="verify-status-column">
+          <div class="status-panel">
+            <h2>Computed Hash</h2>
+            <code id="verifyHashPreview">Awaiting file…</code>
+          </div>
+
+          <div class="status-panel">
+            <h2>On‑Chain Record</h2>
+            <div class="status-row">
+              <span>Stored Hash</span>
+              <code id="onchainHash">—</code>
+            </div>
+            <div class="status-row">
+              <span>IPFS CID</span>
+              <code id="onchainCid">—</code>
+            </div>
+            <div class="status-row">
+              <span>Timestamp</span>
+              <code id="onchainTimestamp">—</code>
+            </div>
+            <div class="status-row">
+              <span>Node ID</span>
+              <code id="onchainNode">—</code>
+            </div>
+          </div>
+
+          <div class="verify-result" id="verifyResult" data-status="idle">
+            <div class="verify-icon" id="verifyIcon"></div>
+            <h2 id="verifyTitle">Waiting for file…</h2>
+            <p id="verifyMessage">
+              Upload a dataset to check whether it has been tampered with since
+              anchoring.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ds-footer compact">
+      <span>De‑Science Ledger • Verification Console</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.2.0/crypto-js.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
+

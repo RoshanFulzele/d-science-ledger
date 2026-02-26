@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>De-Science Ledger – Upload Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="theme-dark upload-page">
+    <div id="particles-bg"></div>
+
+    <header class="ds-header">
+      <div class="ds-logo">De‑Science<span>Ledger</span></div>
+      <nav class="ds-nav">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="upload.html" class="active">Upload</a>
+        <a href="verify.html">Verify</a>
+        <a href="login.html">Login</a>
+      </nav>
+      <div class="ds-header-actions">
+        <button id="presentationToggle" class="btn-ghost small">
+          Demo Mode
+        </button>
+        <button id="connectWalletBtn" class="btn-primary small">
+          Connect Wallet
+        </button>
+      </div>
+    </header>
+
+    <div id="walletDropdown" class="wallet-dropdown" hidden></div>
+
+    <main class="upload-main fade-in-up">
+      <section class="upload-layout glass-card">
+        <div class="upload-form-column">
+          <h1>Anchor Research Dataset</h1>
+          <p class="upload-subtitle">
+            Hash your environmental DNA, telemetry, or field observations and
+            anchor them immutably on Sepolia.
+          </p>
+
+          <form id="uploadForm" class="upload-form">
+            <div class="field">
+              <label for="nodeName">Research Node Name</label>
+              <input
+                type="text"
+                id="nodeName"
+                required
+                placeholder="Orbital Telemetry Node #07"
+              />
+            </div>
+
+            <div class="field">
+              <label for="dataType">Data Type</label>
+              <select id="dataType" required>
+                <option value="">Select type</option>
+                <option value="eDNA">Environmental DNA (eDNA)</option>
+                <option value="Telemetry">Satellite Telemetry</option>
+                <option value="Environmental">Environmental / Climate</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="dataFile">Upload File</label>
+              <div class="file-drop" id="fileDrop">
+                <input
+                  type="file"
+                  id="dataFile"
+                  accept=".csv,.json,.txt,.tsv,.log,.xml"
+                  required
+                />
+                <p>
+                  Drop your dataset here or
+                  <span class="link-button">browse</span>
+                </p>
+                <small>CSV, JSON, TXT, TSV, LOG only. No binaries.</small>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="description">Description</label>
+              <textarea
+                id="description"
+                rows="3"
+                placeholder="Nighttime orbital pass over North Atlantic – ionospheric scatter telemetry."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary full" id="uploadSubmit">
+              Hash, Upload &amp; Anchor
+            </button>
+          </form>
+        </div>
+
+        <div class="upload-status-column">
+          <div class="status-panel">
+            <h2>Hash &amp; Gas</h2>
+            <div class="status-row">
+              <span>SHA‑256 Hash</span>
+              <code id="hashPreview">Awaiting file…</code>
+            </div>
+            <div class="status-row">
+              <span>IPFS CID</span>
+              <code id="cidPreview">—</code>
+            </div>
+            <div class="status-row">
+              <span>Estimated Gas</span>
+              <code id="gasEstimate">—</code>
+            </div>
+            <div class="status-row">
+              <span>Tx Hash</span>
+              <code id="txHashPreview">—</code>
+            </div>
+          </div>
+
+          <div class="status-panel timeline mini">
+            <h2>Transaction Status</h2>
+            <ul id="uploadTimeline" class="timeline-list">
+              <li class="timeline-item active">Waiting for file</li>
+            </ul>
+          </div>
+
+          <div class="status-panel success-panel" id="uploadSuccess" hidden>
+            <h2>Dataset Anchored</h2>
+            <p>Your research stream is now locked into Ethereum history.</p>
+            <button
+              class="btn-secondary full"
+              id="viewOnExplorerBtn"
+              disabled
+            >
+              View on Block Explorer
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ds-footer compact">
+      <span>De‑Science Ledger • Data Anchor Console</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.2.0/crypto-js.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
+
