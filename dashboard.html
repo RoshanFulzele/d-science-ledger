@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>De-Science Ledger – Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="theme-dark dashboard-page">
+    <div id="particles-bg"></div>
+
+    <header class="ds-header">
+      <div class="ds-logo">De‑Science<span>Ledger</span></div>
+      <nav class="ds-nav">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="upload.html">Upload</a>
+        <a href="verify.html">Verify</a>
+        <a href="login.html">Login</a>
+      </nav>
+      <div class="ds-header-actions">
+        <button id="presentationToggle" class="btn-ghost small">
+          Demo Mode
+        </button>
+        <button id="connectWalletBtn" class="btn-primary small">
+          Connect Wallet
+        </button>
+      </div>
+    </header>
+
+    <div id="walletDropdown" class="wallet-dropdown" hidden></div>
+
+    <main class="dashboard-main fade-in-up">
+      <section class="dashboard-top">
+        <div>
+          <h1>Verified Research Nodes</h1>
+          <p class="dashboard-subtitle">
+            Live view of nodes anchoring eDNA, orbital telemetry, and
+            environmental data to Ethereum.
+          </p>
+        </div>
+        <div class="dashboard-top-actions">
+          <div id="sessionInfo" class="session-pill"></div>
+          <button
+            class="btn-secondary small"
+            onclick="window.location.href='upload.html'"
+          >
+            + Anchor Dataset
+          </button>
+          <button class="btn-ghost small" id="logoutBtn">
+            Logout
+          </button>
+          <button
+            class="btn-ghost small"
+            id="mockSensorBtn"
+            title="Stream sample sensor events into the feed"
+          >
+            Mock Sensor Stream
+          </button>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="stats-column">
+          <div class="stat-card glass-card">
+            <div class="stat-header">
+              <p class="stat-label">Active Node</p>
+              <p id="statWallet" class="stat-value small">
+                Not connected
+              </p>
+            </div>
+            <div class="stat-body">
+              <div class="stat-row">
+                <span>Total Submissions</span>
+                <strong id="statSubmissions">0</strong>
+              </div>
+              <div class="stat-row">
+                <span>Last Submission</span>
+                <strong id="statLastSubmission">—</strong>
+              </div>
+              <div class="stat-row">
+                <span>Reputation Score</span>
+                <strong id="statReputation">72.4</strong>
+              </div>
+              <div class="stat-row">
+                <span>On‑Chain Status</span>
+                <strong id="statStatus" class="pill pill-green">
+                  Live on Sepolia
+                </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="stat-card glass-card">
+            <div class="stat-header">
+              <p class="stat-label">Chain Telemetry</p>
+            </div>
+            <div class="stat-body mini-grid">
+              <div>
+                <span>Avg Gas (gwei)</span>
+                <strong id="statGas">12</strong>
+              </div>
+              <div>
+                <span>Block Time (s)</span>
+                <strong id="statBlockTime">12.1</strong>
+              </div>
+              <div>
+                <span>Latest Block</span>
+                <strong id="statBlock">‑</strong>
+              </div>
+              <div>
+                <span>Anchors / hr</span>
+                <strong id="statRate">32</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-column glass-card">
+          <div class="table-header">
+            <h2>Node Activity</h2>
+            <span class="pill pill-blue">Live</span>
+          </div>
+          <table class="nodes-table">
+            <thead>
+              <tr>
+                <th>Node ID</th>
+                <th>Wallet</th>
+                <th>Submissions</th>
+                <th>Last Submission</th>
+                <th>Status</th>
+                <th>Reputation</th>
+              </tr>
+            </thead>
+            <tbody id="nodesTableBody">
+              <!-- Filled via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="timeline-section glass-card">
+        <div class="timeline-header">
+          <h2>On‑Chain Activity Feed</h2>
+          <p>
+            Recent <code>DataSubmitted</code> events from your contract on
+            Sepolia.
+          </p>
+        </div>
+        <div id="activityFeed" class="timeline">
+          <!-- Populated via JS -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="ds-footer compact">
+      <span>De‑Science Ledger • Node Telemetry Console</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
+
